@@ -1,0 +1,6 @@
+{
+  "name": "CivicFlow AI - Intelligent Civic Workflow Platform",
+  "description": "3-tier civic workflow platform connecting citizens, officers, and administrators with automated SLA tracking, AI document extraction, and transparent grievance resolution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

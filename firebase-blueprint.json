@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User in the civic workflow system",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["citizen", "officer", "admin"] },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "departmentName": { "type": "string" }
+      },
+      "required": ["id", "name", "role", "email"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Real-time administrative and PL/SQL trigger event logs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "eventType": { "type": "string" },
+        "applicationId": { "type": "string" },
+        "applicationNumber": { "type": "string" },
+        "actorId": { "type": "string" },
+        "actorName": { "type": "string" },
+        "actorRole": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "triggerSource": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "eventType", "action", "details"]
+    }
+  },
+  "firestore": {
+    "/audit_logs/{logId}": {
+      "schema": "AuditLog",
+      "description": "System-wide activity logs and trigger audits"
+    },
+    "/applications/{appId}": {
+      "schema": "Application",
+      "description": "Civic applications and workflow status"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and RBAC role definition"
+    }
+  }
+}
